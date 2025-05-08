@@ -158,7 +158,6 @@ function initEnemy() {
         healthBarText.style.fontWeight = 'bold';
         healthBarText.style.textShadow = '1px 1px 1px #000';
         
-        // Add to DOM
         healthBarContainer.appendChild(healthBar);
         healthBarContainer.appendChild(healthBarText);
         document.body.appendChild(healthBarContainer);
@@ -362,6 +361,11 @@ function gameLoop(timestamp) {
         enemyY = window.innerHeight - 180;
         updateEnemyTarget(); // Bounce off bottom
     }
+
+    // Ensure enemy stays on right side of screen
+    enemyX = window.innerWidth - 150;
+    enemy.style.left = enemyX + 'px';
+    enemy.style.top = enemyY + 'px';
     
     enemy.style.top = enemyY + 'px';
     
@@ -399,8 +403,8 @@ function createBullet() {
         term.textContent = privacyTerms[Math.floor(Math.random() * privacyTerms.length)];
         
         // Position the bullet
-        const bulletX = enemyX + 50 - term.clientWidth;
-        const bulletY = enemyY + 50;
+        const bulletX = enemyX + 65 - term.clientWidth;
+        const bulletY = enemyY + 65;
         
         term.style.left = bulletX + 'px';
         term.style.top = bulletY + 'px';
@@ -868,7 +872,54 @@ function startGame() {
 
 }
 
+// Window resize handler
+function handleWindowResize() {
+    if (gameActive) {
+        // Adjust  Brad position
+        enemyX = window.innerWidth - 150;
+        enemy.style.left = enemyX + 'px';
+        
+        // Ensure Brad is within vertical bounds
+        if (enemyY >= window.innerHeight - 180) {
+            enemyY = window.innerHeight - 180;
+            enemy.style.top = enemyY + 'px';
+        }
+        
+        // Keep player in bounds
+        if (playerX > window.innerWidth - 60) {
+            playerX = window.innerWidth - 60;
+            player.style.left = playerX + 'px';
+        }
+        
+        // Adjust platform positions
+        adjustPlatforms();
+    }
+}
+
+// Adjust platforms after window resize
+function adjustPlatforms() {
+    // Update ground platform width
+    const groundPlatform = platforms.find(p => p.isGround);
+    if (groundPlatform) {
+        groundPlatform.width = window.innerWidth / 2;
+        groundPlatform.element.style.width = groundPlatform.width + 'px';
+    }
+    
+    // Remove any platforms that are now off-screen
+    for (let i = platforms.length - 1; i >= 0; i--) {
+        const platform = platforms[i];
+        if (!platform.isGround && (platform.x > window.innerWidth || platform.y > window.innerHeight)) {
+            if (platform.element) {
+                gameContainer.removeChild(platform.element);
+            }
+            platforms.splice(i, 1);
+        }
+    }
+}
+
 // Event listeners
+window.addEventListener('resize', handleWindowResize);
+
 window.addEventListener('keydown', e => {
     keys[e.key] = true;
 });
