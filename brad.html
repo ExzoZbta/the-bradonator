@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>I Wanna Be The Bradonator</title>
+
+    <link rel="stylesheet" href="brad.css">
+
+    <style>
+        @font-face {
+            font-family: retro-font;
+            src: url(fonts/Web437_IBM_VGA_8x16.woff)
+        }
+    </style>
+
+    <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+
+</head>
+
+<body>
+    <div id="game-container">
+        <div id="score-display">Time: 0s</div>
+        <div id="player"></div>
+        <div id="enemy"></div>
+        
+        <div id="game-over">
+            <h2>Game Over!</h2>
+            <p>You survived for <span id="final-score">0</span> seconds</p>
+            <button id="restart-button">Play Again</button>
+        </div>
+        
+        <div id="start-screen">
+            <h1>I Wanna Be The Bradonator</h1>
+            <p style="color: white; margin-bottom: 20px;">Beware of Professor Rosen's privacy law concepts!</p>
+            <button id="start-button">Start Game</button>
+        </div>
+    </div>
+    <script src="brad.js"></script>
+</body>
+</html>
