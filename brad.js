@@ -787,7 +787,7 @@ function checkCollisions() {
 function victoryGame() {
     gameActive = false;
     finalScore.textContent = Math.floor(gameTime);
-    gameOver.style.innerText = 'VICTORY!';
+    gameOver.textContent = 'VICTORY! YOU HAVE BECOME THE BRADONATOR!';
     gameOver.style.display = 'block';
     
     // Stop bullet creation
