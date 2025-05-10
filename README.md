@@ -4,7 +4,7 @@
 ## Final Project: I Wanna Be The Bradonator -- A Bullet Hell Platformer
 ---
   ### **Overview**:
-  - 'I Wanna Be The Bradonator' is a bullet hell platformer where you play as a young Brad Rosen who seeks to become The Bradonator. Equipped with the carrot toppings of the carrot cupcakes by Claire's Corner Copia, you must defeat Professor Rosen (donning a top hat). This battle will test your patience and ability to perform in an overwhelming       environment polluted with key terms and phrases learned in CPSC 185. 
+  - Inspired by the 'I wanna Be the Boshy,' inspired by 'I Wanna Be the Guy,' 'I Wanna Be The Bradonator' is a bullet hell platformer where you play as a young Brad Rosen who seeks to become The Bradonator. Equipped with the carrot toppings of the carrot cupcakes by Claire's Corner Copia, you must defeat Professor Rosen (donning a top hat). This battle will test your patience and ability to perform in an overwhelming       environment polluted with key terms and phrases learned in CPSC 185. 
   - Can you become The Bradonator?
 
   ### **Controls**:
